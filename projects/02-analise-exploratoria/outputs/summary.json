@@ -2,6 +2,8 @@
   "linhas": 8,
   "categorias": 4,
   "preco_medio": 854.79,
+  "preco_mediano": 224.9,
+  "desvio_preco": 1441.06,
   "produto_mais_caro": "Notebook Pro",
   "categoria_mais_vendida": "Informática",
   "total_vendido": 373,
