@@ -18,8 +18,9 @@ A primeira versão utiliza uma base CSV local e já está preparada para receber
 
 O principal aprendizado foi perceber que uma análise de dados não começa no gráfico: ela começa na qualidade, na estrutura e na validação dos dados.
 
-Este é o primeiro projeto de uma sequência que continuará com um sistema de controle financeiro, um aplicativo de tarefas e um painel de indicadores de estudos.
+Este é o primeiro projeto de uma trilha prática que continuará com análise
+exploratória, banco de dados, APIs, Machine Learning, automação e integração.
 
-Projeto no GitHub: [adicionar link]
+Projeto no GitHub: https://github.com/MarVinRant/dashboard-precos-produtos
 
 #Python #Pandas #DataAnalysis #Streamlit #Portfolio #AprendizadoContínuo
