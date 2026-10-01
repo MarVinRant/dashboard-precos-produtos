@@ -28,3 +28,7 @@ streamlit run app.py
 
 Os dois componentes usam o mesmo banco SQLite.
 
+## Demonstração Streamlit
+
+https://aplicacao-integrada-rantech.streamlit.app/
+

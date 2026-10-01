@@ -69,3 +69,13 @@ checklist de publicação está em [`docs/publication-checklist.md`](docs/public
 
 O dashboard piloto está disponível em:
 https://dashboard-precos-rantech.streamlit.app/
+
+## Demonstrações publicadas
+
+- Dashboard piloto: https://dashboard-precos-rantech.streamlit.app/
+- Sistema de estoque CRUD: https://dashboard-precos-apputos-lramqypvzf2nskkwh5cbqq.streamlit.app/
+- Aplicação integrada: https://aplicacao-integrada-rantech.streamlit.app/
+
+As aplicações Streamlit são executadas pelo Streamlit Community Cloud a partir
+deste repositório. A API FastAPI do projeto 4 permanece disponível para execução
+local e para um próximo deploy em um serviço de API dedicado.

@@ -12,3 +12,7 @@ streamlit run app.py
 
 O banco `estoque.db` é criado automaticamente no primeiro uso.
 
+## Demonstração
+
+https://dashboard-precos-apputos-lramqypvzf2nskkwh5cbqq.streamlit.app/
+
