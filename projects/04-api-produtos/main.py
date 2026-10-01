@@ -40,6 +40,11 @@ def list_products(categoria: Annotated[str | None, Query()] = None) -> list[Prod
     return [item for item in products if item.categoria.lower() == categoria.lower()]
 
 
+@app.get("/produtos/filtro/preco", response_model=list[Product])
+def products_by_max_price(max_price: float = Query(gt=0)) -> list[Product]:
+    return [item for item in products if item.preco <= max_price]
+
+
 @app.get("/produtos/{product_id}", response_model=Product)
 def get_product(product_id: int) -> Product:
     for item in products:
@@ -53,4 +58,13 @@ def create_product(payload: ProductCreate) -> Product:
     new_product = Product(id=max((item.id for item in products), default=0) + 1, **payload.model_dump())
     products.append(new_product)
     return new_product
+
+
+@app.delete("/produtos/{product_id}", status_code=204)
+def delete_product(product_id: int) -> None:
+    for index, item in enumerate(products):
+        if item.id == product_id:
+            products.pop(index)
+            return
+    raise HTTPException(status_code=404, detail="Produto não encontrado")
 
