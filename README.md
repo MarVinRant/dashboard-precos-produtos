@@ -50,3 +50,18 @@ tests/test_analysis.py
 3. registrar histórico de coletas;
 4. criar testes de integração;
 5. publicar uma demonstração e um post técnico no LinkedIn.
+
+## Trilha de projetos
+
+Os projetos complementares da disciplina estão em [`projects/`](projects/):
+
+- análise exploratória de dados;
+- sistema de estoque com SQLite e CRUD;
+- API de produtos com FastAPI;
+- previsão de vendas com Machine Learning em NumPy;
+- automação de relatórios;
+- aplicação integrada com SQLite, FastAPI e Streamlit;
+- documentação do projeto acadêmico final.
+
+O roteiro de estudo está em [`docs/study-review.md`](docs/study-review.md) e o
+checklist de publicação está em [`docs/publication-checklist.md`](docs/publication-checklist.md).
