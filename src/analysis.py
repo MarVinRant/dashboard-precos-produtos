@@ -11,6 +11,7 @@ def summarize(data: pd.DataFrame) -> dict[str, float | int | str]:
             "total_vendido": 0,
             "produto_mais_caro": "-",
             "categoria_mais_vendida": "-",
+            "ticket_medio": 0.0,
         }
 
     most_expensive = data.loc[data["preco"].idxmax(), "produto"]
@@ -22,6 +23,7 @@ def summarize(data: pd.DataFrame) -> dict[str, float | int | str]:
         "total_vendido": int(data["quantidade_vendida"].sum()),
         "produto_mais_caro": str(most_expensive),
         "categoria_mais_vendida": str(category_totals.iloc[0]["categoria"]),
+        "ticket_medio": float(data["preco"].sum() / len(data)),
     }
 
 
