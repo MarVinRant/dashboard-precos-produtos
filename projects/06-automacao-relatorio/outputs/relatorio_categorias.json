@@ -1,0 +1,26 @@
+[
+  {
+    "categoria": "Informática",
+    "produtos": 3,
+    "preco_medio": 1646.5666666666666,
+    "itens_vendidos": 139
+  },
+  {
+    "categoria": "Eletrônicos",
+    "produtos": 2,
+    "preco_medio": 399.9,
+    "itens_vendidos": 98
+  },
+  {
+    "categoria": "Escritório",
+    "produtos": 2,
+    "preco_medio": 509.45,
+    "itens_vendidos": 73
+  },
+  {
+    "categoria": "Casa",
+    "produtos": 1,
+    "preco_medio": 79.9,
+    "itens_vendidos": 63
+  }
+]

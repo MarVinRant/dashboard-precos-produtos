@@ -1,6 +1,8 @@
 import pandas as pd
 
-from report import build_report
+import pytest
+
+from report import build_report, validate_data
 
 
 def test_report_groups_by_category():
@@ -16,4 +18,9 @@ def test_report_groups_by_category():
     assert result.iloc[0]["categoria"] == "Casa"
     assert result.iloc[0]["produtos"] == 2
     assert result.iloc[0]["itens_vendidos"] == 5
+
+
+def test_validate_data_rejects_missing_columns():
+    with pytest.raises(ValueError):
+        validate_data(__import__("pandas").DataFrame({"produto": ["A"]}))
 
