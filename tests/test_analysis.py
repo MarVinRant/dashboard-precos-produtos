@@ -1,6 +1,7 @@
 import pandas as pd
 
 from src.analysis import sales_by_category, summarize
+from src.data_loader import clean_products
 
 
 def sample_data() -> pd.DataFrame:
@@ -28,3 +29,30 @@ def test_sales_by_category_groups_sales():
     result = sales_by_category(sample_data())
     assert result.iloc[0]["categoria"] == "Casa"
     assert result.iloc[0]["quantidade_vendida"] == 5
+
+
+def test_summarize_handles_empty_data():
+    result = summarize(pd.DataFrame())
+    assert result == {
+        "preco_medio": 0.0,
+        "menor_preco": 0.0,
+        "maior_preco": 0.0,
+        "total_vendido": 0,
+        "produto_mais_caro": "-",
+    }
+
+
+def test_clean_products_converts_types_and_removes_invalid_prices():
+    data = pd.DataFrame(
+        {
+            "produto": ["Válido", "Inválido"],
+            "categoria": ["Casa", "Casa"],
+            "preco": ["12.50", "não informado"],
+            "quantidade_vendida": ["3", "2"],
+            "data_coleta": ["2026-09-01", "2026-09-01"],
+        }
+    )
+    result = clean_products(data)
+    assert len(result) == 1
+    assert result.iloc[0]["preco"] == 12.5
+    assert result.iloc[0]["quantidade_vendida"] == 3
