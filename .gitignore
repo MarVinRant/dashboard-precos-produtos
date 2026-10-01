@@ -6,3 +6,7 @@ __pycache__/
 work/
 .DS_Store
 Thumbs.db
+projects/**/__pycache__/
+projects/**/.test_estoque.db
+projects/**/estoque.db
+projects/**/integrated.db
