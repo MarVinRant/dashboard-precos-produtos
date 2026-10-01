@@ -36,6 +36,9 @@ Regras:
 - exibir a métrica na interface;
 - executar a suíte completa depois da alteração.
 
+O filtro por faixa de preço foi implementado como a atividade seguinte da
+revisão, com validação para intervalos invertidos.
+
 ## Evidência da sessão
 
 Registre abaixo, após concluir o exercício:

@@ -3,7 +3,7 @@ from pathlib import Path
 import plotly.express as px
 import streamlit as st
 
-from src.analysis import sales_by_category, summarize
+from src.analysis import filter_by_price, sales_by_category, summarize
 from src.data_loader import load_csv
 
 
@@ -17,9 +17,18 @@ st.caption("MVP de estudo com Python, Pandas, Plotly e Streamlit")
 data = load_csv(DATA_PATH)
 categories = ["Todas"] + sorted(data["categoria"].unique().tolist())
 selected_category = st.sidebar.selectbox("Categoria", categories)
+price_min = float(data["preco"].min())
+price_max = float(data["preco"].max())
+price_range = st.sidebar.slider(
+    "Faixa de preço",
+    min_value=price_min,
+    max_value=price_max,
+    value=(price_min, price_max),
+)
 
 if selected_category != "Todas":
     data = data[data["categoria"] == selected_category]
+data = filter_by_price(data, *price_range)
 
 metrics = summarize(data)
 col1, col2, col3, col4, col5, col6 = st.columns(6)

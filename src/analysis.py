@@ -1,6 +1,13 @@
 import pandas as pd
 
 
+def filter_by_price(data: pd.DataFrame, minimum: float, maximum: float) -> pd.DataFrame:
+    """Retorna produtos dentro do intervalo de preço informado."""
+    if minimum > maximum:
+        raise ValueError("O preço mínimo não pode ser maior que o máximo.")
+    return data[data["preco"].between(minimum, maximum)].copy()
+
+
 def summarize(data: pd.DataFrame) -> dict[str, float | int | str]:
     """Calcula indicadores principais da base."""
     if data.empty:

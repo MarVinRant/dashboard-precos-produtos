@@ -1,6 +1,6 @@
 import pandas as pd
 
-from src.analysis import sales_by_category, summarize
+from src.analysis import filter_by_price, sales_by_category, summarize
 from src.data_loader import clean_products
 
 
@@ -60,3 +60,17 @@ def test_clean_products_converts_types_and_removes_invalid_prices():
     assert len(result) == 1
     assert result.iloc[0]["preco"] == 12.5
     assert result.iloc[0]["quantidade_vendida"] == 3
+
+
+def test_filter_by_price_returns_only_matching_products():
+    result = filter_by_price(sample_data(), 15.0, 25.0)
+    assert result["produto"].tolist() == ["B"]
+
+
+def test_filter_by_price_rejects_inverted_range():
+    try:
+        filter_by_price(sample_data(), 30.0, 10.0)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("Faixa invertida deveria ser rejeitada")
