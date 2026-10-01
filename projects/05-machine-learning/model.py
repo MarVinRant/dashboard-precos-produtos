@@ -29,10 +29,13 @@ def train_model(data: pd.DataFrame) -> tuple[np.ndarray, dict[str, float]]:
     predictions = features[split:] @ coefficients
     actual = target[split:]
     mae = float(np.mean(np.abs(actual - predictions)))
+    baseline = np.full_like(actual, target[:split].mean())
+    baseline_mae = float(np.mean(np.abs(actual - baseline)))
     denominator = float(np.sum((actual - actual.mean()) ** 2))
     r2 = 0.0 if denominator == 0 else float(1 - np.sum((actual - predictions) ** 2) / denominator)
     metrics = {
         "mae": round(mae, 2),
+        "baseline_mae": round(baseline_mae, 2),
         "r2": round(r2, 2),
     }
     return coefficients, metrics

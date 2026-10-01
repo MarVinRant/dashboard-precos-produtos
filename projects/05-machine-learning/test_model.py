@@ -14,5 +14,5 @@ def test_train_model_returns_metrics():
     )
     coefficients, metrics = train_model(data)
     assert len(coefficients) == 3
-    assert set(metrics) == {"mae", "r2"}
+    assert set(metrics) == {"mae", "baseline_mae", "r2"}
 
