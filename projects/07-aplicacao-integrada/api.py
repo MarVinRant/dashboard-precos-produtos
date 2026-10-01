@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Query
 from pydantic import BaseModel, Field
 
 from integrated_db import add_product, all_products, initialize
@@ -21,8 +21,11 @@ def health() -> dict[str, str]:
 
 
 @app.get("/produtos")
-def products() -> list[dict]:
-    return all_products()
+def products(categoria: str | None = Query(default=None)) -> list[dict]:
+    items = all_products()
+    if categoria:
+        return [item for item in items if item["categoria"].lower() == categoria.lower()]
+    return items
 
 
 @app.post("/produtos", status_code=201)
