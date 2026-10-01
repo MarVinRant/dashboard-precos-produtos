@@ -23,10 +23,16 @@ def initialize() -> None:
                 nome TEXT NOT NULL,
                 categoria TEXT NOT NULL,
                 preco REAL NOT NULL CHECK (preco >= 0),
-                estoque INTEGER NOT NULL CHECK (estoque >= 0)
+                estoque INTEGER NOT NULL CHECK (estoque >= 0),
+                estoque_minimo INTEGER NOT NULL DEFAULT 5 CHECK (estoque_minimo >= 0)
             )
             """
         )
+        columns = {row[1] for row in connection.execute("PRAGMA table_info(produtos)")}
+        if "estoque_minimo" not in columns:
+            connection.execute(
+                "ALTER TABLE produtos ADD COLUMN estoque_minimo INTEGER NOT NULL DEFAULT 5"
+            )
 
 
 def list_products() -> list[sqlite3.Row]:
@@ -34,11 +40,11 @@ def list_products() -> list[sqlite3.Row]:
         return connection.execute("SELECT * FROM produtos ORDER BY nome").fetchall()
 
 
-def create_product(nome: str, categoria: str, preco: float, estoque: int) -> None:
+def create_product(nome: str, categoria: str, preco: float, estoque: int, estoque_minimo: int = 5) -> None:
     with closing(connect()) as connection, connection:
         connection.execute(
-            "INSERT INTO produtos (nome, categoria, preco, estoque) VALUES (?, ?, ?, ?)",
-            (nome, categoria, preco, estoque),
+            "INSERT INTO produtos (nome, categoria, preco, estoque, estoque_minimo) VALUES (?, ?, ?, ?, ?)",
+            (nome, categoria, preco, estoque, estoque_minimo),
         )
 
 

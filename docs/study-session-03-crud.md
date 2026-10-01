@@ -28,5 +28,6 @@ negativo, com teste do ciclo cadastrar → consultar → atualizar → excluir.
 ## Exercício seguinte
 
 Adicione uma coluna `estoque_minimo` e mostre um alerta quando o estoque atual
-for menor ou igual ao limite.
+for menor ou igual ao limite. Esse exercício foi implementado, incluindo uma
+migração simples para bancos criados pela versão anterior.
 
