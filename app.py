@@ -22,11 +22,12 @@ if selected_category != "Todas":
     data = data[data["categoria"] == selected_category]
 
 metrics = summarize(data)
-col1, col2, col3, col4 = st.columns(4)
+col1, col2, col3, col4, col5 = st.columns(5)
 col1.metric("Preço médio", f"R$ {metrics['preco_medio']:,.2f}")
 col2.metric("Menor preço", f"R$ {metrics['menor_preco']:,.2f}")
 col3.metric("Maior preço", f"R$ {metrics['maior_preco']:,.2f}")
 col4.metric("Itens vendidos", f"{metrics['total_vendido']:,}")
+col5.metric("Categoria líder", metrics["categoria_mais_vendida"])
 
 st.subheader("Produtos")
 st.dataframe(data, use_container_width=True, hide_index=True)

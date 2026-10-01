@@ -23,6 +23,7 @@ def test_summarize_returns_expected_metrics():
     assert result["maior_preco"] == 20.0
     assert result["total_vendido"] == 5
     assert result["produto_mais_caro"] == "B"
+    assert result["categoria_mais_vendida"] == "Casa"
 
 
 def test_sales_by_category_groups_sales():
@@ -39,6 +40,7 @@ def test_summarize_handles_empty_data():
         "maior_preco": 0.0,
         "total_vendido": 0,
         "produto_mais_caro": "-",
+        "categoria_mais_vendida": "-",
     }
 
 

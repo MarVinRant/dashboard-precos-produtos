@@ -26,6 +26,7 @@ streamlit run app.py
 - preço médio dos produtos;
 - menor e maior preço;
 - total de itens vendidos;
+- categoria com maior volume vendido;
 - preços agrupados por produto;
 - vendas agrupadas por categoria.
 

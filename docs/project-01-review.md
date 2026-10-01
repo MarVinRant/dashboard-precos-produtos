@@ -19,7 +19,7 @@
 
 ## Exercícios práticos
 
-1. Adicione uma métrica chamada `categoria_mais_vendida`.
+1. ~~Adicione uma métrica chamada `categoria_mais_vendida`.~~ Implementado na revisão atual.
 2. Crie um filtro por preço mínimo e máximo.
 3. Adicione uma tabela com os três produtos mais vendidos.
 4. Faça o dashboard mostrar uma mensagem amigável quando o filtro não encontrar linhas.
