@@ -22,8 +22,8 @@ fora da interface e testando o resultado vazio para uma categoria inexistente.
 2. Por que a interface não deveria montar SQL diretamente?
 3. Qual camada deveria validar o formato de uma requisição HTTP?
 
-## Exercício seguinte
+## Exercício implementado
 
-Fazer o Streamlit consumir a API HTTP, em vez de acessar `integrated_db.py`
-diretamente, e criar um teste de integração para cadastro e consulta.
+O Streamlit agora tenta consumir a API HTTP por meio de `client.py`. Se a API
+estiver indisponível, o fallback local mantém o projeto executável para estudo.
 

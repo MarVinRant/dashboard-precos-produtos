@@ -5,6 +5,7 @@ import pandas as pd
 import streamlit as st
 
 sys.path.insert(0, str(Path(__file__).parent))
+from client import create_remote_product, fetch_products
 from integrated_db import add_product, all_products, initialize
 
 
@@ -21,12 +22,27 @@ with st.expander("Adicionar produto"):
         quantidade = st.number_input("Itens vendidos", min_value=0, step=1)
         if st.form_submit_button("Salvar"):
             if produto.strip() and categoria.strip():
-                add_product(produto.strip(), categoria.strip(), preco, quantidade)
-                st.success("Produto salvo no SQLite.")
+                payload = {
+                    "produto": produto.strip(),
+                    "categoria": categoria.strip(),
+                    "preco": preco,
+                    "quantidade_vendida": quantidade,
+                }
+                try:
+                    create_remote_product(payload)
+                    st.success("Produto enviado pela API para o SQLite.")
+                except Exception:
+                    add_product(**payload)
+                    st.warning("API indisponível; produto salvo diretamente no SQLite.")
                 st.rerun()
             st.error("Produto e categoria são obrigatórios.")
 
-data = pd.DataFrame(all_products())
+try:
+    data = pd.DataFrame(fetch_products())
+    st.caption("Fonte atual: API FastAPI")
+except Exception:
+    data = pd.DataFrame(all_products())
+    st.caption("Fonte atual: SQLite local (API indisponível)")
 if data.empty:
     st.info("Cadastre o primeiro produto para visualizar os indicadores.")
 else:
