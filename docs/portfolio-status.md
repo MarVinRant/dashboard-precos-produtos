@@ -2,14 +2,14 @@
 
 | Projeto | Implementação | Testes | Documentação | Estudo | Publicação |
 |---|---|---|---|---|---|
-| Dashboard de preços | concluída | aprovado | concluída | revisão iniciada | publicado; nova versão pendente |
-| Análise exploratória | concluída | aprovado | concluída | pendente | pendente |
-| Estoque CRUD | concluída | aprovado | concluída | pendente | pendente |
-| API de produtos | concluída | aprovado | concluída | pendente | pendente |
-| Machine Learning | concluída | aprovado | concluída | pendente | pendente |
-| Automação de relatório | concluída | aprovado | concluída | pendente | pendente |
-| Aplicação integrada | concluída | aprovado | concluída | pendente | pendente |
-| Projeto acadêmico final | documentação-base | plano definido | parcial | pendente | pendente |
+| Dashboard de preços | concluída | aprovado | concluída | revisão iniciada | GitHub e Streamlit publicados |
+| Análise exploratória | concluída | aprovado | concluída | material preparado | GitHub publicado; LinkedIn pendente |
+| Estoque CRUD | concluída | aprovado | concluída | material preparado | GitHub publicado; LinkedIn pendente |
+| API de produtos | concluída | aprovado | concluída | material preparado | GitHub publicado; LinkedIn pendente |
+| Machine Learning | concluída | aprovado | concluída | material preparado | GitHub publicado; LinkedIn pendente |
+| Automação de relatório | concluída | aprovado | concluída | material preparado | GitHub publicado; LinkedIn pendente |
+| Aplicação integrada | concluída | aprovado | concluída | material preparado | GitHub publicado; LinkedIn pendente |
+| Projeto acadêmico final | documentação-base | plano definido | parcial | sessão preparada | GitHub publicado; LinkedIn pendente |
 
 ## Critério para mudar um projeto para "estudado"
 

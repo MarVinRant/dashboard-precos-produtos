@@ -66,3 +66,6 @@ Os projetos complementares da disciplina estão em [`projects/`](projects/):
 
 O roteiro de estudo está em [`docs/study-review.md`](docs/study-review.md) e o
 checklist de publicação está em [`docs/publication-checklist.md`](docs/publication-checklist.md).
+
+O dashboard piloto está disponível em:
+https://dashboard-precos-rantech.streamlit.app/
