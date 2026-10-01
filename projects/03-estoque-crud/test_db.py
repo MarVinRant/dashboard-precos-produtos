@@ -13,6 +13,15 @@ def test_product_crud_lifecycle(monkeypatch):
         product_id = products[0]["id"]
         db.update_stock(product_id, 8)
         assert db.list_products()[0]["estoque"] == 8
+        db.update_price(product_id, 12.5)
+        assert db.list_products()[0]["preco"] == 12.5
+        assert len(db.search_products("teste")) == 1
+        try:
+            db.update_price(product_id, -1)
+        except ValueError:
+            pass
+        else:
+            raise AssertionError("Preço negativo deveria ser rejeitado")
         db.delete_product(product_id)
         assert db.list_products() == []
     finally:

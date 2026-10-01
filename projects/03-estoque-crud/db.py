@@ -47,6 +47,21 @@ def update_stock(product_id: int, estoque: int) -> None:
         connection.execute("UPDATE produtos SET estoque = ? WHERE id = ?", (estoque, product_id))
 
 
+def update_price(product_id: int, preco: float) -> None:
+    if preco < 0:
+        raise ValueError("O preço não pode ser negativo.")
+    with closing(connect()) as connection, connection:
+        connection.execute("UPDATE produtos SET preco = ? WHERE id = ?", (preco, product_id))
+
+
+def search_products(term: str) -> list[sqlite3.Row]:
+    with closing(connect()) as connection:
+        return connection.execute(
+            "SELECT * FROM produtos WHERE nome LIKE ? ORDER BY nome",
+            (f"%{term}%",),
+        ).fetchall()
+
+
 def delete_product(product_id: int) -> None:
     with closing(connect()) as connection, connection:
         connection.execute("DELETE FROM produtos WHERE id = ?", (product_id,))

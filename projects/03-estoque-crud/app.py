@@ -1,7 +1,15 @@
 import pandas as pd
 import streamlit as st
 
-from db import create_product, delete_product, initialize, list_products, update_stock
+from db import (
+    create_product,
+    delete_product,
+    initialize,
+    list_products,
+    search_products,
+    update_price,
+    update_stock,
+)
 
 
 st.set_page_config(page_title="Estoque CRUD", page_icon="📦")
@@ -24,7 +32,8 @@ with st.expander("Cadastrar produto", expanded=True):
                 st.success("Produto cadastrado.")
                 st.rerun()
 
-products = list_products()
+search_term = st.text_input("Buscar por nome", placeholder="Digite parte do nome")
+products = search_products(search_term) if search_term else list_products()
 if products:
     data = pd.DataFrame([dict(row) for row in products])
     st.subheader("Produtos cadastrados")
@@ -35,6 +44,12 @@ if products:
     if st.button("Atualizar estoque"):
         update_stock(selected_id, new_stock)
         st.success("Estoque atualizado.")
+        st.rerun()
+
+    new_price = st.number_input("Novo preço", min_value=0.0, step=0.01)
+    if st.button("Atualizar preço"):
+        update_price(selected_id, new_price)
+        st.success("Preço atualizado.")
         st.rerun()
 
     if st.button("Excluir produto selecionado"):
