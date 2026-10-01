@@ -26,6 +26,7 @@ para verificar os valores em uma base conhecida.
 
 ## Exercício seguinte
 
-Crie um gráfico do preço médio por categoria e escreva uma conclusão de duas
+O gráfico do preço médio por categoria foi implementado em
+`outputs/figures/preco_medio_por_categoria.png`. Escreva uma conclusão de duas
 frases baseada nos valores calculados.
 

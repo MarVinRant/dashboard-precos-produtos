@@ -43,6 +43,16 @@ def build_summary(data: pd.DataFrame) -> dict:
     }
 
 
+def average_price_by_category(data: pd.DataFrame) -> pd.DataFrame:
+    """Calcula o preço médio por categoria."""
+    return (
+        data.groupby("categoria", as_index=False)["preco"]
+        .mean()
+        .rename(columns={"preco": "preco_medio"})
+        .sort_values("preco_medio", ascending=False)
+    )
+
+
 def create_figures(data: pd.DataFrame) -> None:
     os.environ.setdefault("MPLCONFIGDIR", str(PROJECT_DIR / ".matplotlib"))
     import matplotlib.pyplot as plt
@@ -55,6 +65,14 @@ def create_figures(data: pd.DataFrame) -> None:
     plt.ylabel("Quantidade vendida")
     plt.tight_layout()
     plt.savefig(FIGURES_DIR / "vendas_por_categoria.png", dpi=160)
+    plt.close()
+
+    average_price_by_category(data).plot.bar(x="categoria", y="preco_medio", legend=False)
+    plt.title("Preço médio por categoria")
+    plt.xlabel("Categoria")
+    plt.ylabel("Preço médio")
+    plt.tight_layout()
+    plt.savefig(FIGURES_DIR / "preco_medio_por_categoria.png", dpi=160)
     plt.close()
 
 
