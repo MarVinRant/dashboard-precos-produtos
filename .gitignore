@@ -10,3 +10,4 @@ projects/**/__pycache__/
 projects/**/.test_estoque.db
 projects/**/estoque.db
 projects/**/integrated.db
+projects/**/.matplotlib/
